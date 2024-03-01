@@ -1,10 +1,21 @@
 import React from 'react'
 
 function Dashboard() {
+
   return (
-    <div>
-      
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
+        </tr>
+      </thead>
+
+    </table>
+    
+
+   
   )
 }
 
