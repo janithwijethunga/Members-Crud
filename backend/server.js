@@ -1,23 +1,17 @@
 const express = require("express");
 const cors = require("cors");
-const bodyParser = require("body-parser");
-const app =express();
-
+const app = express();
 
 const dbconfig = require('./db');
 
-const membersRoutes = require("./Routes/membersRoute")
+const membersRoutes = require("./Routes/membersRoute"); // Importing member routes
 
-app.use(cors()); 
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
+// Using the router object with app.use()
 app.use("/api/members", membersRoutes);
 
 const port = process.env.PORT || 5001;
 
-app.use(cors());
-app.use(bodyParser.json());
-
-app.use("api/members", membersRoutes);
-
-app.listen(port,()=>console.log(`Node server started using nodemon`));
+app.listen(port, () => console.log(`Node server started using nodemon`));
