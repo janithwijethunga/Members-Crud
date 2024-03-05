@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Using the router object with app.use()
-app.use("/api/members", membersRoutes);
+app.use("/api/mem", membersRoutes);
 
 const port = process.env.PORT || 5001;
 
