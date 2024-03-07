@@ -29,4 +29,17 @@ router.get("/getallmembers", async(req, res) => {
     }
 });
 
+router.route('/delete/:id').delete(async(req, res)=>{
+    
+  const id = req.params.id;
+
+  try {
+    await member.findByIdAndDelete(id); // <-- Issue here
+    return res.status(200).json({status: "member deleted"});
+  } catch (error) {
+    return res.status(400).json({status:"Error with delete member", message: error})
+  }
+
+});
+
 module.exports = router;

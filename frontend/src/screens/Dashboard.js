@@ -54,6 +54,18 @@ function Dashboard() {
     }
   };
 
+  async function deletemember(id) {
+    try {
+      const response = (
+        await axios.delete(`http://localhost:5001/api/mem/delete/${id}`)
+      ).data;
+      console.log(response);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="container mx-auto">
       <h2 className="text-2xl font-bold mb-4">Add New Member</h2>
@@ -110,7 +122,7 @@ function Dashboard() {
               <td className="border px-4 py-2">{member.address}</td>
               <td className="border px-4 py-2">
                 <Link to="#" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Edit</Link>
-                <Link to="#" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</Link>
+                <button onClick={() => deletemember(member._id)}>Delete</button>
               </td>
             </tr>
           ))}
